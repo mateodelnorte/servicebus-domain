@@ -1,5 +1,5 @@
 {
-  "name": "servicebus-domain",
+  "name": "servicebus-message-domain",
   "version": "0.0.0",
   "description": "servicebus middleware to automatically run all incoming message code paths within a domain, allowing ability to catch thrown errors.",
   "main": "index.js",

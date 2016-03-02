@@ -4,21 +4,25 @@ module.exports = function messageDomain (opts) {
 
   opts = opts || {};
 
+  opts.modifyDomain = opts.modifyDomain || function (d, channel, message, options) {
+    if (message.properties.correlationId) {
+      d.correlationId = message.properties.correlationId;
+    }
+  };
+
   return {
 
     handleIncoming: function json (channel, message, options, next) {
 
       var d = domain.create();
 
-      d.on('error', opts.onError || function (err) {
-        throw err;
-      });
+      if (opts.onError) {
+        d.on('error', opts.onError);
+      }
 
       d.run(function() {
 
-        if (message.properties.correlationId) {
-          d.correlationId = message.properties.correlationId;
-        }
+        opts.modifyDomain.call(this, d, channel, message, options);
 
         next.bind(this, null, channel, message, options)();
 

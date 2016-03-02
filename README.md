@@ -1,13 +1,13 @@
-# servicebus-domain
+# servicebus-message-domain
 servicebus middleware to automatically run all incoming message code paths within a domain, allowing ability to catch thrown errors.
 
 ## middleware
 
-Set up the servicebus-domain middleware as follows:
+Set up the servicebus-message-domain middleware as follows:
 ```
 var config = require('cconfig')();
 var servicebus = require('servicebus');
-var domain = require('servicebus-domain');
+var domain = require('servicebus-message-domain');
 
 var bus = servicebus.bus({
   url: config.RABBITMQ_URL
