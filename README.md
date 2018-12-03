@@ -1,4 +1,7 @@
 # servicebus-message-domain
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/mateodelnorte/servicebus-message-domain.svg)](https://greenkeeper.io/)
+
 servicebus middleware to automatically run all incoming message code paths within a domain, allowing ability to catch thrown errors.
 
 ## middleware
